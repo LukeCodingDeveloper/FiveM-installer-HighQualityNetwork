@@ -9,7 +9,8 @@ reset="\e[0m"
 runtime_link=$1
 
 # BashSelect-Skriptquelle ändern
-source <(curl -s https://raw.githubusercontent.com/DeinGithubUsername/DeinRepo/main/BashSelect.sh)
+source <(curl -s https://raw.githubusercontent.com/LukeCodingDeveloper/BashSelect.sh/main/BashSelect.sh)
+
 clear
 
 status(){
@@ -33,7 +34,8 @@ runCommand(){
     fi
 }
 
-source <(curl -s https://raw.githubusercontent.com/DeinGithubUsername/DeinRepo/main/BashSelect.sh)
+source <(curl -s https://raw.githubusercontent.com/LukeCodingDeveloper/BashSelect.sh/main/BashSelect.sh)
+
 
 status "Installiere MariaDB/MySQL und phpmyadmin"
 
@@ -188,7 +190,7 @@ if [[ -e $dir ]]; then
 fi
 
 if [[ $phpmaInstall == 0 ]]; then
-  bash <(curl -s https://raw.githubusercontent.com/DeinGithubUsername/DeinRepo/main/install.sh) -s
+  bash <(curl -s https://raw.githubusercontent.com/LukeCodingDeveloper/FiveM-installer-HighQualityNetwork/main/install.sh) -s
 fi
 
 runCommand "mkdir -p $dir/server" "Verzeichnisse für den FiveM-Server erstellen"
