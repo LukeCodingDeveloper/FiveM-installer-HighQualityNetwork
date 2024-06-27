@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Variables
-GITHUB_REPO="https://github.com/DeinGithubBenutzername/DeinRepositoryName"
+GITHUB_REPO="https://github.com/LukeCodingDeveloper/FiveM-installer-HighQualityNetwork.git"
 
 # Update and install necessary packages
 sudo apt-get update
