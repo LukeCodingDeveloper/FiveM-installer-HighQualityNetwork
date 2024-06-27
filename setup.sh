@@ -22,7 +22,7 @@ status(){
 }
 
 # Einbindung der BashSelect-Funktionalität
-source <(curl -s https://raw.githubusercontent.com/DeinGithubUsername/DeinRepo/main/BashSelect.sh)
+source <(curl -s https://raw.githubusercontent.com/LukeCodingDeveloper/BashSelect.sh/main/BashSelect.sh)
 
 # Auswahl der Aktionen
 export OPTIONS=("install FiveM" "update FiveM" "do nothing")
@@ -65,7 +65,8 @@ esac
 
 # Ausführen des Installations- oder Update-Skripts basierend auf der Auswahl
 if [[ "$action" == "install" ]]; then
-  bash <(curl -s https://raw.githubusercontent.com/DeinGithubUsername/DeinRepo/main/install.sh) "$runtime_link"
+  bash <(curl -s https://raw.githubusercontent.com/LukeCodingDeveloper/FiveM-installer-HighQualityNetwork/main/install.sh) "$runtime_link"
 else
-  bash <(curl -s https://raw.githubusercontent.com/DeinGithubUsername/DeinRepo/main/update.sh) "$runtime_link"
+  bash <(curl -s https://raw.githubusercontent.com/LukeCodingDeveloper/FiveM-installer-HighQualityNetwork/main/update.sh) "$runtime_link"
 fi
+
