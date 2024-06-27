@@ -5,42 +5,34 @@ yellow="$(tput setaf 3)"
 green="$(tput setaf 2)"
 nc="$(tput sgr0)"
 
-# Überprüfen, ob curl installiert ist, und ggf. installieren
-curl --version > /dev/null
-if [[ $? -ne 0 ]]; then
-  echo "${yellow}Curl is not installed. Installing curl...${nc}"
-  apt -y install curl
-fi
+curl --version
+if [[ $? == 127  ]]; then  apt -y install curl; fi
 
 clear
 
-# Funktion zur Anzeige von Statusnachrichten
 status(){
   clear
-  echo -e "${green}$@...${nc}"
+  echo -e $green$@'...'$reset
   sleep 1
 }
 
-# Einbindung der BashSelect-Funktionalität
 source <(curl -s https://raw.githubusercontent.com/LukeCodingDeveloper/BashSelect.sh/main/BashSelect.sh)
 
-# Auswahl der Aktionen
-export OPTIONS=("install FiveM" "update FiveM" "do nothing")
+export OPTIONS=("install FiveM" "update FiveM" "do nothing") #"install MySQl/MariaDB + PHPMyAdmin"
 
-status "Choose an action:"
 bashSelect
 
 case $? in
      0 )
-        action="install";;
+        install=true;;
      1 )
-        action="update";;
+        install=false;;
      2 )
-        exit 0;;
+        exit 0
 esac
 
-# Auswahl der Runtime-Version
-status "Select a runtime version:"
+# Runtime Version 
+status "Select a runtime version"
 readarray -t VERSIONS <<< $(curl -s https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/ | egrep -m 3 -o '[0-9].*/fx.tar.xz')
 
 latest_recommended=$(echo "${VERSIONS[0]}" | cut -c 1-4)
@@ -60,13 +52,11 @@ case $? in
         read -p "Enter the download link: " runtime_link
         ;;
      3 )
-        exit 0;;
+        exit 0
 esac
 
-# Ausführen des Installations- oder Update-Skripts basierend auf der Auswahl
-if [[ "$action" == "install" ]]; then
+if [[ $install == true ]]; then
   bash <(curl -s https://raw.githubusercontent.com/LukeCodingDeveloper/FiveM-installer-HighQualityNetwork/main/install.sh) "$runtime_link"
 else
   bash <(curl -s https://raw.githubusercontent.com/LukeCodingDeveloper/FiveM-installer-HighQualityNetwork/main/update.sh) "$runtime_link"
 fi
-
