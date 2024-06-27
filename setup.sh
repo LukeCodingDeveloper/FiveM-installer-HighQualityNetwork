@@ -16,7 +16,7 @@ status(){
   sleep 1
 }
 
-source <(curl -s https://raw.githubusercontent.com/LukeCodingDeveloper/BashSelect.sh/main/BashSelect.sh)
+source <(curl -s https://raw.githubusercontent.com/JulianGransee/BashSelect.sh/main/BashSelect.sh)
 
 export OPTIONS=("install FiveM" "update FiveM" "do nothing") #"install MySQl/MariaDB + PHPMyAdmin"
 
@@ -58,5 +58,5 @@ esac
 if [[ $install == true ]]; then
   bash <(curl -s https://raw.githubusercontent.com/LukeCodingDeveloper/FiveM-installer-HighQualityNetwork/main/install.sh) $runtime_link
 else
-  bash <(curl -s https://raw.githubusercontent.com/LukeCodingDeveloper/FiveM-installer-HighQualityNetwork/main/install.sh) $runtime_link
+  bash <(curl -s https://raw.githubusercontent.com/LukeCodingDeveloper/FiveM-installer-HighQualityNetwork/main/update.sh) $runtime_link
 fi
