@@ -29,7 +29,7 @@ runCommand(){
 }
 
 # Einbindung der BashSelect-Funktionalität
-source <(curl -s https://raw.githubusercontent.com/DeinGithubUsername/DeinRepo/main/BashSelect.sh)
+source <(curl -s https://raw.githubusercontent.com/LukeCodingDeveloper/BashSelect.sh/main/BashSelect.sh)
 clear
 
 # Auswahl des Alpine-Verzeichnisses
